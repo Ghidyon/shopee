@@ -1,0 +1,23 @@
+/* Fonts: Baloo, Raleway, Rubik */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Raleway&family=Rubik&display=swap');
+
+:root {
+    /* fonts */
+    --baloo: "Baloo", cursive;
+    --raleway: "Raleway", cursive;
+    --rubik: "Rubik", cursive;
+
+    /* colors */
+    --priColor: #003859;
+    --secColor: #00A5C4;
+    --yellowColor: #FFD289;
+}
+
+/* Global styling */
+button,
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+@import './typography.css';
