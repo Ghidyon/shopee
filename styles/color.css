@@ -1,0 +1,23 @@
+.pri-color {
+    color: var(--priColor);
+}
+
+.pri-color-bg {
+    background: var(--priColor);
+}
+
+.sec-color {
+    color: var(--secColor);
+}
+
+.sec-color-bg {
+    background: var(--secColor);
+}
+
+.yellow-color {
+    color: var(--yellowColor);
+}
+
+.yellow-color-bg {
+    background: var(--yellowColor);
+}

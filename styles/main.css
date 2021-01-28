@@ -20,5 +20,10 @@ button:focus {
     box-shadow: none !important;
 }
 
+a {
+    text-decoration: none !important;
+}
 
-@import './typography.css';
+a:hover {
+    text-decoration: underline !important;
+}
