@@ -70,7 +70,7 @@
                     </ul>
 
                     <form action="#" class="font-size-14 font-raleway">
-                        <a href="#" class="rounded-pill py-2 pri-color-bg">
+                        <a href="#" class="rounded-pill py-2 pri-color-bg text-decoration-none">
                             <span class="text-white px-2 font-size-16"><i class="fas fa-shopping-cart"></i></span>
                             <span class="px-3 py-2 bg-light text-dark rounded-pill">0</span>
                         </a>
@@ -228,6 +228,46 @@
         </section>
         <!-- Top Sale Ends -->
 
+        <!-- Special Price -->
+        <section id="special-price">
+            <div class="container">
+                <h4 class="font-rubik font-size-20">Special Price</h4>
+                <div class="d-flex justify-content-end">
+                    <div id="filters" class="btn-group" role="group" aria-label="Filter buttons">
+                        <button class="btn is-checked" data-filter="*">All Brands</button>
+                        <button class="btn" data-filter=".Apple">Apple</button>
+                        <button class="btn" data-filter=".Samsung">Samsung</button>
+                        <button class="btn" data-filter=".Redmi">Redmi</button>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="grid-item Apple border">
+                        <div class="item py-2" style="width:200px;">
+                            <div class="product font-raleway">
+                                <a href="#"><img src="/assets/products/13.png" class="img-fluid" alt="Product1"></a>
+                                <div class="text-center">
+                                    <h6>Apple iPhone X</h6>
+                                    <div class="rating text-warning font-size-12">
+                                        <span><i class="fas fa-star"></i></span>
+                                        <span><i class="fas fa-star"></i></span>
+                                        <span><i class="fas fa-star"></i></span>
+                                        <span><i class="fas fa-star"></i></span>
+                                        <span><i class="far fa-star"></i></span>
+                                    </div>
+                                    <div class="price py-2">
+                                        <span>$1499</span>
+                                    </div>
+                                    <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Special Price Ends -->
+
     </main>
     <!-- Main Ends -->
 
@@ -247,6 +287,9 @@
 
     <!-- Owl Carousel js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+
+    <!-- Isotope js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
 
     <!-- Custom js -->
     <script src="index.js"></script>

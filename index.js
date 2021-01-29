@@ -23,4 +23,19 @@ $(document).ready(function(){
             }
         }
     })
+
+    // Isotope Filter
+    var $grid = $('.grid').isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows'
+    })
+
+    // Special Products Filter on button click
+    $('.button-group').on('click', 'button', function(){
+        // When a button is clicked. return the data filter attribute
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({
+            filter: filterValue
+        })
+    })
 });
