@@ -1,0 +1,33 @@
+/* Top Sale Styling */
+
+#top-sale .owl-carousel .item .product a {
+    overflow: hidden;
+}
+
+#top-sale .owl-carousel .item .product img {
+    transition: transform .5s ease;
+}
+
+#top-sale .owl-carousel .item .product img:hover {
+    transform: scale(1.1);
+}
+
+#top-sale .owl-carousel .owl-nav button {
+    position: absolute;
+    top: 30%;
+    outline: none;
+    color: var(--priColor);
+    font-size: 35px;
+}
+
+#top-sale .owl-carousel .owl-nav button:hover {
+    background: none;
+}
+
+#top-sale .owl-carousel .owl-nav button.owl-prev {
+    left: -2%;
+}
+
+#top-sale .owl-carousel .owl-nav button.owl-next {
+    right: -2%;
+}
