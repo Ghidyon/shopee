@@ -74,10 +74,13 @@ $(document).ready(function () {
     // Product Quantity
     $qtyUp = $('.qty .qty-up');
     $qtyDown = $('.qty .qty-down');
-    $qtyInput = $('.qty .qty-input');
+    // $qtyInput = $('.qty .qty-input');
 
     // Increment Quantity
     $qtyUp.click(function(e){
+        // Get the input element using the data-id attribute of the button
+        let $qtyInput = $( ` .qty .qty-input[data-id='${ $(this).data('id') }'] ` );
+        
         if ( $qtyInput.val() >= 1 && $qtyInput.val() <= 9 ) {
             // Get current value of input and increment
             $qtyInput.val(function( index, currentValue ){
@@ -88,6 +91,9 @@ $(document).ready(function () {
 
     // Decrement Quantity
     $qtyDown.click(function(e){
+        // Get the input element using the data-id attribute of the button
+        let $qtyInput = $( `.qty .qty-input[data-id='${ $(this).data('id') }']` );
+
         if ( $qtyInput.val() > 1 ) {
             // Get current value of input and decrement
             $qtyInput.val(function( index, currentValue ){
