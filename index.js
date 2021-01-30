@@ -70,4 +70,29 @@ $(document).ready(function () {
             }
         }
     });
+
+    // Product Quantity
+    $qtyUp = $('.qty .qty-up');
+    $qtyDown = $('.qty .qty-down');
+    $qtyInput = $('.qty .qty-input');
+
+    // Increment Quantity
+    $qtyUp.click(function(e){
+        if ( $qtyInput.val() >= 1 && $qtyInput.val() <= 9 ) {
+            // Get current value of input and increment
+            $qtyInput.val(function( index, currentValue ){
+                return ++currentValue;
+            });
+        }
+    });
+
+    // Decrement Quantity
+    $qtyDown.click(function(e){
+        if ( $qtyInput.val() > 1 ) {
+            // Get current value of input and decrement
+            $qtyInput.val(function( index, currentValue ){
+                return --currentValue;
+            });
+        }
+    })
 });
