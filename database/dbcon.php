@@ -11,17 +11,30 @@ class DBConnection
     // Connection Property
     public $con = null;
 
-    // Constructor Function Initializes Object Properties
+    // Constructor initializes Object Properties immediately class is called
     public function __construct()
     {
         // Create database connection
         $this->con = mysqli_connect($this->host, $this->username, $this->password, $this->database);
-        // Test database connection when it fails
+        // End file loading when there is no database connection
         if ($this->con->connect_error) {
             die('Connection failed: ' . $this->con->connect_error);
         }
-        echo ('Successful Connection!');
+    }
+
+    // Close Opened Database Connection
+    protected function closeConnection()
+    {
+        if ($this->con !== null) {
+            # close connection
+            $this->con->close();
+            $this->con = null;
+        }
+    }
+
+    // Destructor is automatically called when object is not in use
+    public function __destruct()
+    {
+        $this->closeConnection();
     }
 }
-
-$connect = new DBConnection();

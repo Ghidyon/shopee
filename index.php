@@ -1,6 +1,9 @@
 <?php
-    // include database connection
+    // include app.php
     require_once('app.php');
+    
+    // create database connection
+    $connect = new DBConnection();
 
     // include header area
     require_once('includes/header.php');
