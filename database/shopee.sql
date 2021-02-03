@@ -81,8 +81,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `register_date`) VALUES
-(1, 'Daily', 'Tuition', '2020-03-28 13:07:17'),
-(2, 'Akshay', 'Kashyap', '2020-03-28 13:07:17');
+(1, 'Gideon', 'Akunana', '2021-02-03 02:04:57'),
+(2, 'Daniel', 'Hebrew', '2021-02-03 02:04:57');
 
 -- --------------------------------------------------------
 
