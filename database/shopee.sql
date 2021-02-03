@@ -46,22 +46,22 @@ CREATE TABLE `product` (
 
 --
 -- Dumping data for table `product`
---
+-- 
 
 INSERT INTO `product` (`item_id`, `item_brand`, `item_name`, `item_price`, `item_image`, `item_register`) VALUES
-(1, 'Samsung', 'Samsung Galaxy S6 Edge', 169.00, './assets/products/1.png', '2021-02-03 01:57:57'), -- NOW()
-(2, 'Redmi', 'Redmi Note 5', 122.00, './assets/products/2.png', '2021-02-03 01:57:57'),
-(3, 'Redmi', 'Redmi Note 8', 142.00, './assets/products/3.png', '2021-02-03 01:57:57'),
-(4, 'Redmi', 'Redmi Note 6', 124.00, './assets/products/4.png', '2021-02-03 01:57:57'),
-(5, 'Redmi', 'Redmi Note 6A', 125.00, './assets/products/5.png', '2021-02-03 01:57:57'),
-(6, 'Redmi', 'Redmi Note 9', 150.00, './assets/products/6.png', '2021-02-03 01:57:57'),
-(7, 'Redmi', 'Redmi Note 9+', 155.00, './assets/products/8.png', '2021-02-03 01:57:57'),
-(8, 'Redmi', 'Redmi 4A', 119.00, './assets/products/10.png', '2021-02-03 01:57:57'),
-(9, 'Samsung', 'Samsung Galaxy S6', 162.00, './assets/products/11.png', '2021-02-03 01:57:57'),
-(10, 'Samsung', 'Samsung Galaxy S7', 173.00, './assets/products/12.png', '2021-02-03 01:57:57'),
-(11, 'Apple', 'Apple iPhone X', 217.00, './assets/products/13.png', '2021-02-03 01:57:57'),
-(12, 'Apple', 'Apple iPhone 5', 122.00, './assets/products/14.png', '2021-02-03 01:57:57'),
-(13, 'Apple', 'Apple iPhone 6', 135.00, './assets/products/15.png', '2021-02-03 01:57:57');
+(1, 'Samsung', 'Samsung Galaxy S6 Edge', 169.00, './assets/products/1.png', NOW()), -- NOW() 'for setting to current system time
+(2, 'Redmi', 'Redmi Note 5', 122.00, './assets/products/2.png', NOW()),
+(3, 'Redmi', 'Redmi Note 8', 142.00, './assets/products/3.png', NOW()),
+(4, 'Redmi', 'Redmi Note 6', 124.00, './assets/products/4.png', NOW()),
+(5, 'Redmi', 'Redmi Note 6A', 125.00, './assets/products/5.png', NOW()),
+(6, 'Redmi', 'Redmi Note 9', 150.00, './assets/products/6.png', NOW()),
+(7, 'Redmi', 'Redmi Note 9+', 155.00, './assets/products/8.png', NOW()),
+(8, 'Redmi', 'Redmi 4A', 119.00, './assets/products/10.png', NOW()),
+(9, 'Samsung', 'Samsung Galaxy S6', 162.00, './assets/products/11.png', NOW()),
+(10, 'Samsung', 'Samsung Galaxy S7', 173.00, './assets/products/12.png', NOW()),
+(11, 'Apple', 'Apple iPhone X', 217.00, './assets/products/13.png', NOW()),
+(12, 'Apple', 'Apple iPhone 5', 122.00, './assets/products/14.png', NOW()),
+(13, 'Apple', 'Apple iPhone 6', 135.00, './assets/products/15.png', NOW());
 
 -- --------------------------------------------------------
 
@@ -81,8 +81,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `register_date`) VALUES
-(1, 'Gideon', 'Akunana', '2021-02-03 02:04:57'),
-(2, 'Daniel', 'Hebrew', '2021-02-03 02:04:57');
+(1, 'Gideon', 'Akunana', NOW()),
+(2, 'Daniel', 'Hebrew', NOW());
 
 -- --------------------------------------------------------
 
