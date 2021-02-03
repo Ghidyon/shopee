@@ -60,8 +60,8 @@ INSERT INTO `product` (`item_id`, `item_brand`, `item_name`, `item_price`, `item
 (9, 'Samsung', 'Samsung Galaxy S6', 162.00, './assets/products/11.png', '2021-02-03 01:57:57'),
 (10, 'Samsung', 'Samsung Galaxy S7', 173.00, './assets/products/12.png', '2021-02-03 01:57:57'),
 (11, 'Apple', 'Apple iPhone X', 217.00, './assets/products/13.png', '2021-02-03 01:57:57'),
-(12, 'Apple', 'Apple iPhone 5', 152.00, './assets/products/14.png', '2021-02-03 01:57:57'),
-(13, 'Apple', 'Apple iPhone 6', 152.00, './assets/products/15.png', '2021-02-03 01:57:57');
+(12, 'Apple', 'Apple iPhone 5', 122.00, './assets/products/14.png', '2021-02-03 01:57:57'),
+(13, 'Apple', 'Apple iPhone 6', 135.00, './assets/products/15.png', '2021-02-03 01:57:57');
 
 -- --------------------------------------------------------
 
