@@ -1,6 +1,5 @@
 <?php
 
-// include app.php file containing all important constants and MySQL scripts
 // require_once('./app.php');
 
 // DBConnection Object -- create database connection
