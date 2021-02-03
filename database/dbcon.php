@@ -22,6 +22,12 @@ class DBConnection
         }
     }
 
+    // Destructor is automatically called when object is not in use
+    public function __destruct()
+    {
+        $this->closeConnection();
+    }
+
     // Close Opened Database Connection
     protected function closeConnection()
     {
@@ -30,11 +36,5 @@ class DBConnection
             $this->con->close();
             $this->con = null;
         }
-    }
-
-    // Destructor is automatically called when object is not in use
-    public function __destruct()
-    {
-        $this->closeConnection();
     }
 }
