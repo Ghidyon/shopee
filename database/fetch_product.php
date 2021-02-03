@@ -1,7 +1,8 @@
 <?php
 
 // Class to fetch product data
-class Product {
+class Product
+{
 
     // Property
     public $db = null;
@@ -13,5 +14,22 @@ class Product {
         if (!isset($db->con)) return null;
         // else assign value to $db property 
         $this->db = $db;
+    }
+
+    // Method to fetch product data
+    public function getData($table = 'product')
+    {
+        // query database to fetch data
+        $sql = "SELECT * FROM {$table}";
+        $result = $this->db->con->query($sql);
+        $data = [];
+
+        // fetch product data one by one from the database
+        // Using Object Oriented Style
+        /* while ( $item = $result->fetch_array(MYSQLI_ASSOC) ) {
+            // Fetch individual products and push them into an array
+            $data[] = $item;
+        } */
+        return $data;
     }
 }
