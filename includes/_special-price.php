@@ -1,3 +1,12 @@
+<?php
+
+// include app.php file containing all important constants and MySQL scripts
+require_once('./app.php');
+
+// Fetch product data
+// $product_shuffle = $product->getData();
+?>
+
 <!-- Special Price -->
 <section id="special-price">
     <div class="container">
@@ -12,12 +21,14 @@
         </div>
 
         <div class="grid">
-            <div class="grid-item Apple border">
+            <!-- Map through every item in product_shuffle array -->
+            <?php array_map(function($item){ ?>
+            <div class="grid-item <?= $item['item_brand']; ?> border">
                 <div class="item py-2" style="width:200px;">
                     <div class="product font-raleway">
-                        <a href="#"><img src="./assets/products/13.png" class="img-fluid" alt="Product1"></a>
+                        <a href="#"><img src="<?= $item['item_image'] ?? './assets/products/13.png'; ?>" class="img-fluid" alt="Product<?= $item['item_id'] ?? 'Unknown'; ?>"></a>
                         <div class="text-center">
-                            <h6>Apple iPhone X</h6>
+                            <h6><?= $item['item_name'] ?? 'Unknown'; ?></h6>
                             <div class="rating text-warning font-size-12">
                                 <span><i class="fas fa-star"></i></span>
                                 <span><i class="fas fa-star"></i></span>
@@ -26,14 +37,14 @@
                                 <span><i class="far fa-star"></i></span>
                             </div>
                             <div class="price py-2">
-                                <span>$1499</span>
+                                <span>$<?= $item['item_price'] ?? 0;?></span>
                             </div>
                             <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="grid-item Samsung border">
+            <!-- <div class="grid-item Samsung border">
                 <div class="item py-2" style="width:200px;">
                     <div class="product font-raleway">
                         <a href="#"><img src="./assets/products/11.png" class="img-fluid" alt="Product1"></a>
@@ -305,7 +316,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <?php }, $product_shuffle ); ?>
         </div>
     </div>
 </section>
