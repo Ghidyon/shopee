@@ -4,7 +4,10 @@
 // require_once('./app.php');
 
 // Fetch product data
-$product_shuffle = $product->getData();
+$product_array = $product->getData();
+
+// Randomize order of items in product array
+shuffle($product_array);
 ?>
 
 <!-- Top Sale -->
@@ -16,10 +19,10 @@ $product_shuffle = $product->getData();
         <!-- Owl Carousel -->
         <div class="owl-carousel owl-theme">
             <!-- Loop through product data array and display individual product -->
-            <?php foreach ( $product_shuffle as $item ) : ?>
+            <?php foreach ( $product_array as $item ) : ?>
             <div class="item py-2">
                 <div class="product font-raleway">
-                    <a href="#"><img src="<?= $item['item_image'] ?? './assets/products/1.png'; ?>" class="img-fluid" alt="<?= $item['item_brand'] ?? 'Unknown'; ?>"></a>
+                    <a href="#"><img src="<?= $item['item_image'] ?? './assets/products/1.png'; ?>" class="img-fluid" alt="<?= $item['item_brand'] ?? 'Unknown'; ?> product"></a>
                     <div class="text-center">
                         <h6><?= $item['item_name'] ?? 'Unknown'; ?></h6>
                         <div class="rating text-warning font-size-12">

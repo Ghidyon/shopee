@@ -1,10 +1,10 @@
 <?php
 
 // Display brand filter functionality from database
-// Map through product_shuffle array and return item brands
+// Map through product_array and return item brands
 $brands = array_map(function ($item) {
     return $item['item_brand'];
-}, $product_shuffle);
+}, $product_array);
 
 // Remove duplicate brands from the array and returns array of non-repetitive brands
 $unique_brands = array_unique($brands);
@@ -23,7 +23,9 @@ sort($unique_brands);
         <div class="d-flex justify-content-end">
             <div id="filters" class="btn-group font-size-16 font-baloo">
                 <button class="btn is-checked" data-filter="*">All Brands</button>
+
                 <!-- Display brand filter functionality -->
+                <!-- Map through unique_brands array and print out brand filter buttons -->
                 <?php array_map(function ($brand) {
                     // outputs a formatted string
                     // %s stands for string format
@@ -34,7 +36,7 @@ sort($unique_brands);
         </div>
 
         <div class="grid">
-            <!-- Map through every item in product_shuffle array -->
+            <!-- Map through every item in product_array -->
             <?php array_map(function ($item) { ?>
                 <div class="grid-item <?= $item['item_brand']; ?> border">
                     <div class="item py-2" style="width:200px;">
@@ -57,7 +59,7 @@ sort($unique_brands);
                         </div>
                     </div>
                 </div>
-            <?php }, $product_shuffle); ?>
+            <?php }, $product_array); ?>
         </div>
     </div>
 </section>
