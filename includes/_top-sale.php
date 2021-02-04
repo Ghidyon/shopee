@@ -1,7 +1,7 @@
 <?php
 
 // include app.php file containing all important constants and MySQL scripts
-require_once('./app.php');
+// require_once('./app.php');
 
 // Fetch product data
 $product_shuffle = $product->getData();
