@@ -14,6 +14,9 @@ sort($unique_brands);
 
 // Sort an associative array in ascending order(value), retains the keys
 // asort($unique_brands);
+
+// Randomize order of items in product array
+shuffle($product_array);
 ?>
 
 <!-- Special Price -->

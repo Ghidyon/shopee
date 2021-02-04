@@ -1,3 +1,8 @@
+<?php
+// Randomize order of items in product array
+shuffle($product_array);
+?>
+
 <!-- New Phone -->
 <section id="new-phone">
     <div class="container">
