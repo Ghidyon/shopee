@@ -1,4 +1,7 @@
 <?php
+    // include app.php
+    require_once('app.php');
+    
     // include header area
     require_once('includes/header.php');
 

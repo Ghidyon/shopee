@@ -1,3 +1,14 @@
+<?php
+// Get item_id from http link
+$item_id = $_GET['item_id'] ?? 1;
+
+// Loop through each product in the product_array
+foreach ($product_array as $item) :
+
+    // Match item_id on http link with item_id in the product_array
+    if ($item['item_id'] === $item_id) :
+?>
+
 <!-- Product -->
 <section id="product">
     <div class="container py-3">
@@ -5,7 +16,7 @@
 
             <!-- Product Image -->
             <div class="col-sm-6">
-                <img src="./assets/products/1.png" alt="Product" class="img-fluid">
+                <img src="<?= $item['item_image'] ?? './assets/products/1.png'; ?>" alt="<?= $item['item_brand']; ?> product" class="img-fluid">
                 <div class="row pt-3 font-size-16 font-baloo">
                     <div class="col">
                         <button type="submit" class="btn btn-danger form-control">Proceed to Buy</button>
@@ -21,8 +32,8 @@
             <div class="col-sm-6 py-5">
 
                 <!-- Product Name -->
-                <h5 class="font-baloo font-size-20">Samsung Galaxy S6 Edge</h5>
-                <small>By Samsung</small>
+                <h5 class="font-baloo font-size-20"><?= $item['item_name'] ?? 'Unknown'; ?></h5>
+                <small>By <?= $item['item_brand'] ?? 'Brand'; ?></small>
                 <div class="d-flex">
                     <div class="rating text-warning font-size-12">
                         <span><i class="fas fa-star"></i></span>
@@ -45,7 +56,7 @@
                     </tr>
                     <tr class="font-size-14 font-raleway">
                         <td>Deal Price:</td>
-                        <td class="font-size-20 text-danger ps-2">$<span>1,499</span><small
+                        <td class="font-size-20 text-danger ps-2">$<span><?= $item['item_price'] ?? 0; ?></span><small
                                 class="text-dark font-size-12">&nbsp;&nbsp;inclusive of all taxes.</small></td>
                     </tr>
                     <tr class="font-size-14 font-raleway">
@@ -177,3 +188,8 @@
     </div>
 </section>
 <!-- Product Ends -->
+
+<?php
+    endif;
+endforeach;
+?>

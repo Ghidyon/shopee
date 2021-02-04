@@ -44,7 +44,9 @@ shuffle($product_array);
                 <div class="grid-item <?= $item['item_brand']; ?> border">
                     <div class="item py-2" style="width:200px;">
                         <div class="product font-raleway">
-                            <a href="#"><img src="<?= $item['item_image'] ?? './assets/products/13.png'; ?>" class="img-fluid" alt="Product<?= $item['item_id'] ?? 'Unknown'; ?>"></a>
+                            <a href="product.php?item_id=<?= $item['item_id']; ?>">
+                                <img src="<?= $item['item_image'] ?? './assets/products/13.png'; ?>" class="img-fluid" alt="Product<?= $item['item_id'] ?? 'Unknown'; ?>">
+                            </a>
                             <div class="text-center">
                                 <h6><?= $item['item_name'] ?? 'Unknown'; ?></h6>
                                 <div class="rating text-warning font-size-12">

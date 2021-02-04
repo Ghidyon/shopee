@@ -13,7 +13,9 @@ shuffle($product_array);
             <?php foreach ( $product_array as $item ): ?>
             <div class="item py-2 bg-light">
                 <div class="product font-raleway">
-                    <a href="#"><img src="<?= $item['item_image'] ?? './assets/products/1.png'; ?>" class="img-fluid" alt="<?= $item['item_brand']; ?> product"></a>
+                    <a href="product.php?item_id=<?= $item['item_id']; ?>">
+                        <img src="<?= $item['item_image'] ?? './assets/products/1.png'; ?>" class="img-fluid" alt="<?= $item['item_brand']; ?> product">
+                    </a>
                     <div class="text-center">
                         <h6><?= $item['item_name'] ?? 'Unknown'; ?></h6>
                         <div class="rating text-warning font-size-12">

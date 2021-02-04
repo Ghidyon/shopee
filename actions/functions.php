@@ -9,4 +9,4 @@ $db = new DBConnection();
 $product = new Product($db);
 
 // Fetch product data
-print_r($product->getData());
+$product_array = $product->getData();
