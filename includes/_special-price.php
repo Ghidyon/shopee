@@ -24,9 +24,12 @@ sort($unique_brands);
             <div id="filters" class="btn-group font-size-16 font-baloo">
                 <button class="btn is-checked" data-filter="*">All Brands</button>
                 <!-- Display brand filter functionality -->
-                <?php foreach ($unique_brands as $brand) : ?>
-                    <button class="btn" data-filter=".<?= $brand; ?>"><?= $brand; ?></button>
-                <?php endforeach; ?>
+                <?php array_map(function ($brand) {
+                    // outputs a formatted string
+                    // %s stands for string format
+                    printf('<button class="btn is-checked" data-filter=".%s">%s</button>', $brand, $brand);
+                }, $unique_brands);
+                ?>
             </div>
         </div>
 
