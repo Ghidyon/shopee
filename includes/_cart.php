@@ -9,23 +9,25 @@
             <!-- Cart Items -->
             <div class="col-sm-9">
                 <?php
-                // Get data from cart table in the database
-                $cart_data = $product->getData('cart');
+                    // Get data from cart table in the database
+                    $cart_data = $product->getData('cart');
 
-                // loop through cart_data to get item_id(s)
-                foreach ($cart_data as $item) :
-                    // Use item_id to get product_data from the product table in the database
-                    $product_data = $product->getProduct($item['item_id']);
+                    // loop through cart_data to get item_id(s)
+                    foreach ($cart_data as $item) :
+                        // Use item_id to get product_data from the product table in the database
+                        $product_data = $product->getProduct($item['item_id']);
+
+                        // Since product_data is a multi-dimensional array, Map through product array and display item
+                        array_map(function($item) {                    
                 ?>
-
                     <!-- Cart Product -->
                     <div class="row border-top py-3 mt-3">
                         <div class="col-sm-2">
-                            <img src="<?= $product_data[0]['item_image'] ?? './assets/products/1.png'; ?>" style="height:120px" alt="Product<?= $cart_data['cart_id'] ?? 'Unknown'; ?>" class="img-fluid">
+                            <img src="<?= $item['item_image'] ?? './assets/products/1.png'; ?>" style="height:120px" alt="Product<?= $cart_data['cart_id'] ?? 'Unknown'; ?>" class="img-fluid">
                         </div>
                         <div class="col-sm-8">
-                            <h5 class="font-baloo font-size-20"><?= $product_data[0]['item_name'] ?? 'Unknown'; ?></h5>
-                            <small>by <?= $product_data[0]['item_brand'] ?? 'Unknown'; ?></small>
+                            <h5 class="font-baloo font-size-20"><?= $item['item_name'] ?? 'Unknown'; ?></h5>
+                            <small>by <?= $item['item_brand'] ?? 'Unknown'; ?></small>
 
                             <!-- Product Rating -->
                             <div class="d-flex">
@@ -60,18 +62,17 @@
                         <!-- Product Price -->
                         <div class="col-sm-2">
                             <div class="font-baloo font-size-20 text-danger text-end">
-                                $<span><?= $product_data[0]['item_price'] ?? 0; ?></span>
+                                $<span><?= $item['item_price'] ?? 0; ?></span>
                             </div>
                         </div>
                         <!-- Product Price Ends -->
 
                     </div>
                     <!-- Cart Product Ends -->
-
                 <?php
-                endforeach;
+                    }, $product_data); // closing part of array mapping function
+                    endforeach;
                 ?>
-
             </div>
             <!-- Cart Items Ends -->
 
