@@ -59,7 +59,11 @@ shuffle($product_array);
                                 <div class="price py-2">
                                     <span>$<?= $item['item_price'] ?? 0; ?></span>
                                 </div>
-                                <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                <form method="POST">
+                                    <input type="hidden" name="user_id" value="<?= 1; ?>"> <!-- Hide input field carrying user_id information -->
+                                    <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 1; ?>"> <!-- Hide input field carrying item_id information -->
+                                    <button type="submit" name="special_price_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                </form>
                             </div>
                         </div>
                     </div>
