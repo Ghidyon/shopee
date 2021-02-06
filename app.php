@@ -12,6 +12,7 @@
     // getting scripts for functionality
     require_once(APP_ROOT . DS . 'database' . DS . 'dbcon.php'); // MySQL database connection script
     require_once(APP_ROOT . DS . 'database' . DS . 'fetch_product.php'); // Fetch Product Class script
+    require_once(APP_ROOT . DS . 'database' . DS . 'add_to_cart.php'); // Fetch Product Class script
     require_once(APP_ROOT . DS . 'actions' . DS . 'functions.php'); // functions script
 
 ?>
