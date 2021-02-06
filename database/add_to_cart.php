@@ -42,5 +42,23 @@ class Cart
         }
     }
 
-    // 
+    // Method to get user_id and item_id, then insert into cart table in the database
+    public function addToCart($user_id, $item_id)
+    {
+        // if user_id and item_id is set, create data array
+        if ( isset($user_id) && isset($item_id) ) {
+            $data_array = [
+                "user_id" => $user_id,
+                "item_id" => $item_id
+            ];
+
+            // Insert data array as paramater into insertIntoCart method, to insert data into cart table in database
+            $result = $this->insertIntoCart($data_array);
+            if ($result) {
+                header('location:'.$_SERVER['PHP_SELF']);
+            }
+
+        }
+
+    }
 }
