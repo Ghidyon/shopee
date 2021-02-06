@@ -1,12 +1,25 @@
 <?php
 // Randomize order of items in product array
 shuffle($product_array);
+
+// Request method POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user_id = $_POST['user_id'];
+    $item_id = $_POST['item_id'];
+
+    // When top_sale_submit(add to cart) button is clicked
+    if ( isset($_POST['new_phone_submit']) ) {
+
+        // call addToCart method
+        $cart->addToCart($user_id, $item_id);
+    }
+}
 ?>
 
 <!-- New Phone -->
 <section id="new-phone">
     <div class="container">
-        <h4 class="font-rubik font-size-20">New Phone</h4>
+        <h4 class="font-rubik font-size-20">New Phones</h4>
         <hr>
 
         <div class="owl-carousel owl-theme">

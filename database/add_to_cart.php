@@ -60,4 +60,10 @@ class Cart
             }
         }
     }
+
+    // Method to get product(s) from product table in database using item_id(s)
+    public function getItemId()
+    {
+        
+    }
 }

@@ -17,6 +17,19 @@ sort($unique_brands);
 
 // Randomize order of items in product array
 shuffle($product_array);
+
+// Request method POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user_id = $_POST['user_id'];
+    $item_id = $_POST['item_id'];
+
+    // When top_sale_submit(add to cart) button is clicked
+    if ( isset($_POST['special_price_submit']) ) {
+
+        // call addToCart method
+        $cart->addToCart($user_id, $item_id);
+    }
+}
 ?>
 
 <!-- Special Price -->
