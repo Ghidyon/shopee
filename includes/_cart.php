@@ -9,8 +9,12 @@
             <!-- Cart Items -->
             <div class="col-sm-9">
                 <?php
-                // Get data from cart table in database
+                // Get data from cart table in the database
                 $cart_data = $product->getData('cart');
+
+                // Get product_data from product table in the database using item_id
+                $product_data = $product->getProduct(5);
+                print_r($product_data);
 
                 // loop through cart_data to get item_id(s)
                 foreach ($cart_data as $item) :

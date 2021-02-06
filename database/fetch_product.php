@@ -21,14 +21,40 @@ class Product
         // query database to fetch data
         $sql = "SELECT * FROM {$table}";
         $result = $this->db->con->query($sql);
+
+        // create empty array
         $data = [];
 
         // fetch product data one by one from the database
         // Using Object Oriented Style
-        while ( $item = $result->fetch_array(MYSQLI_ASSOC) ) {
+        while ( $item = $result->fetch_array(MYSQLI_ASSOC) ) { // fetch a database row as an associative array
             // fetch individual product and push them into an array
             $data[] = $item;
         }
         return $data;
+    }
+
+    // Method to get product(s) from product table in the database using item_id
+    public function getProduct($item_id = null, $table = 'product')
+    {
+        // Once item_id is set, query database and retrieve product(s)
+        if (isset($item_id)) {
+            // query database to fetch product data
+            $sql = "SELECT * FROM {$table} WHERE item_id = {$item_id}";
+            $result = $this->db->con->query($sql);
+
+            // create empty array
+            $data = [];
+        
+            // fetch product data one by one from the database
+            // Using Object Oriented Style
+            /* while ( $item = $result->fetch_array(MYSQLI_ASSOC) ) { // fetch a database row as an associative array
+                // fetch individual product and push them into data array
+                $data[] = $item;
+            } */
+            $item = $result->fetch_array(MYSQLI_ASSOC);
+            $data[] = $item;
+            return $data;
+        }
     }
 }
