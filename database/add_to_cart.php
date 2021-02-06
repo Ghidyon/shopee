@@ -55,10 +55,9 @@ class Cart
             // Insert data array as paramater into insertIntoCart method, to insert data into cart table in database
             $result = $this->insertIntoCart($data_array);
             if ($result) {
-                header('location:'.$_SERVER['PHP_SELF']);
+                // reload page
+                header('Location:'.$_SERVER['PHP_SELF']);
             }
-
         }
-
     }
 }

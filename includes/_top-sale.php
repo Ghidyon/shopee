@@ -1,10 +1,18 @@
 <?php
-
 // include app.php file containing all important constants and MySQL scripts
 // require_once('./app.php');
 
 // Randomize order of items in product array
 shuffle($product_array);
+
+// Request method POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user_id = $_POST['user_id'];
+    $item_id = $_POST['item_id'];
+
+    // call addToCart method
+    $cart->addToCart($user_id, $item_id);
+}
 ?>
 
 <!-- Top Sale -->
@@ -34,7 +42,11 @@ shuffle($product_array);
                             <div class="price py-2">
                                 <span>$<?= $item['item_price'] ?? '0'; ?></span>
                             </div>
-                            <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                            <form method="POST">
+                                <input type="hidden" name="user_id" value="<?= 1; ?>"> <!-- Hide input field carrying user_id information -->
+                                <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 1; ?>"> <!-- Hide input field carrying item_id information -->
+                                <button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>

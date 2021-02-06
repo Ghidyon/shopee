@@ -1,4 +1,6 @@
 <?php
+ob_start();
+
     // include app.php
     require_once('app.php');
 
