@@ -45,14 +45,14 @@ class Product
 
             // create empty array
             $data = [];
-        
-            // fetch product data one by one from the database
-            // Using Object Oriented Style
-            /* while ( $item = $result->fetch_array(MYSQLI_ASSOC) ) { // fetch a database row as an associative array
+                    
+            /* while ( $item = $result->fetch_array(MYSQLI_ASSOC) ) { 
                 // fetch individual product and push them into data array
                 $data[] = $item;
             } */
-            $item = $result->fetch_array(MYSQLI_ASSOC);
+
+            // Using Object Oriented Style to fetch a database row as an associative array
+            $item = $result->fetch_array(MYSQLI_ASSOC); // fetch a database row as an associative array
             $data[] = $item;
             return $data;
         }
