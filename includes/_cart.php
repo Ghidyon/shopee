@@ -12,25 +12,20 @@
                 // Get data from cart table in the database
                 $cart_data = $product->getData('cart');
 
-                // Get product_data from product table in the database using item_id
-                $product_data = $product->getProduct(5);
-                print_r($product_data);
-
                 // loop through cart_data to get item_id(s)
                 foreach ($cart_data as $item) :
-                    print_r($item);
-
-                    // Use item_id to get product from the product table in the database
+                    // Use item_id to get product_data from the product table in the database
+                    $product_data = $product->getProduct($item['item_id']);
                 ?>
 
                     <!-- Cart Product -->
                     <div class="row border-top py-3 mt-3">
                         <div class="col-sm-2">
-                            <img src="./assets/products/1.png" style="height:120px" alt="Cart1" class="img-fluid">
+                            <img src="<?= $product_data[0]['item_image'] ?? './assets/products/1.png'; ?>" style="height:120px" alt="Product<?= $cart_data['cart_id'] ?? 'Unknown'; ?>" class="img-fluid">
                         </div>
                         <div class="col-sm-8">
-                            <h5 class="font-baloo font-size-20">Samsung Galaxy S6 Edge</h5>
-                            <small>by Samsung</small>
+                            <h5 class="font-baloo font-size-20"><?= $product_data[0]['item_name'] ?? 'Unknown'; ?></h5>
+                            <small>by <?= $product_data[0]['item_brand'] ?? 'Unknown'; ?></small>
 
                             <!-- Product Rating -->
                             <div class="d-flex">
@@ -60,13 +55,12 @@
                                 <button type="submit" class="btn font-baloo text-danger px-3">Save for Later</button>
                             </div>
                             <!-- Product Quantity Ends -->
-
                         </div>
 
                         <!-- Product Price -->
                         <div class="col-sm-2">
                             <div class="font-baloo font-size-20 text-danger text-end">
-                                $<span>1499</span>
+                                $<span><?= $product_data[0]['item_price'] ?? 0; ?></span>
                             </div>
                         </div>
                         <!-- Product Price Ends -->
