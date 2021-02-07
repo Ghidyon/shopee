@@ -83,10 +83,10 @@ class Cart
             // query database to delete data
             $sql = "DELETE FROM {$table} WHERE item_id = {$item_id}";
             $result = $this->db->con->query($sql);
-/* 
+
             if ($result) {
                 header('Location:'.$_SERVER['PHP_SELF']);
-            } */
+            }
             return $result;
         }
     }

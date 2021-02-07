@@ -1,5 +1,5 @@
 <?php
-ob_start();
+    ob_start(); // to bypass default reload page action whenever there is a form submission
 
     // include app.php
     require_once('app.php');
