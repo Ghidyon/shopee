@@ -4,7 +4,8 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Once delete button is clicked, return item_id
         if ( isset($_POST['delete_item']) ) {
-            // Cal a method to delete cart item using item_id
+            // Call method to delete cart item using item_id
+            $delete_item = $cart->deleteItem($_POST['item_id']);
         }
     }
 ?>
