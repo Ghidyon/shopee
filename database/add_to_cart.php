@@ -60,4 +60,16 @@ class Cart
             }
         }
     }
+
+    // Method to calculate subtotal of items in the cart
+    /* public function getSum($arr)
+    {
+        // if arr is set,
+        if (isset($arr)) {
+            $sum = 0;
+            foreach($arr as $item) {
+                lk
+            }
+        }
+    } */
 }

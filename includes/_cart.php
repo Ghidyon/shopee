@@ -18,7 +18,8 @@
                         $product_data = $product->getProduct($item['item_id']);
 
                         // Since product_data is a multi-dimensional array, Map through product array and display item
-                        array_map(function($item) {                    
+                        // Map through product array and get store prices of items in an array
+                        $sub_total[] = array_map(function($item) {                    
                 ?>
                     <!-- Cart Product -->
                     <div class="row border-top py-3 mt-3">
@@ -70,8 +71,10 @@
                     </div>
                     <!-- Cart Product Ends -->
                 <?php
+                    return $item['item_price'];
                     }, $product_data); // closing part of array mapping function
                     endforeach;
+                    print_r($sub_total);
                 ?>
             </div>
             <!-- Cart Items Ends -->
