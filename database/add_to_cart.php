@@ -74,4 +74,19 @@ class Cart
             // '.2f' signifies that only 2 digits will appear after the decimal
         }
     }
+
+    // Method to delete cart item using item_id
+    public function deleteItem($item_id = null, $table = 'cart')
+    {
+        // If there's an item_id specified, query database and delete item
+        if ($item_id != null) {
+            // query database to delete data
+            $sql = "DELETE FROM {$table} WHERE item_id = {$item_id}";
+            $result = $this->db->con->query($sql);
+            // return $result;
+            if ($result) {
+                
+            }
+        }
+    }
 }

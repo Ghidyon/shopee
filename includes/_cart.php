@@ -1,3 +1,14 @@
+<?php
+
+    // Request method POST
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Once delete button is clicked, return item_id
+        if ( isset($_POST['delete_item']) ) {
+            // Cal a method to delete cart item using item_id
+        }
+    }
+?>
+
 <!-- Cart -->
 <section id="cart">
     <div class="container py-5">
@@ -54,7 +65,11 @@
                                         <i class="fas fa-angle-up"></i>
                                     </button>
                                 </div>
-                                <button type="submit" class="btn font-baloo text-danger border-end rounded-0 px-3">Delete</button>
+                                <?php // Once delete button is clicked, get item_id of that item ?>
+                                <form method="post">
+                                    <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 0; ?>">
+                                    <button type="submit" name="delete_item" class="btn font-baloo text-danger border-end rounded-0 px-3">Delete</button>
+                                </form>
                                 <button type="submit" class="btn font-baloo text-danger px-3">Save for Later</button>
                             </div>
                             <!-- Product Quantity Ends -->
@@ -84,7 +99,7 @@
                     <h6 class="font-size-12 font-raleway text-success pt-2"><i class="fas fa-check"></i> Your order is eligible for FREE delivery</h6>
                     <div class="border-top py-4">
                         <h5 class="font-size-20 font-baloo">
-                            Total: <?= count($product->getData('cart')); // get the number of items in the cart table ?> item(s) => 
+                            Total: <?= count($item_prices); // get the number of items in the cart ?> item(s) => 
                             <span class="text-danger">$</span><span class="text-danger"><?= $cart->getSum($item_prices) ?? 0; ?></span>
                         </h5>
                         <button type="submit" class="btn btn-warning mt-3">Proceed to Buy</button>
