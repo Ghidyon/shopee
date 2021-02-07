@@ -83,7 +83,9 @@
                 <div class="sub-total text-center border mt-3">
                     <h6 class="font-size-12 font-raleway text-success pt-2"><i class="fas fa-check"></i> Your order is eligible for FREE delivery</h6>
                     <div class="border-top py-4">
-                        <h5 class="font-size-20 font-baloo">Total (2 items): <span class="text-danger">$</span><span class="text-danger">2998.00</span>
+                        <h5 class="font-size-20 font-baloo">
+                            Total: <?= count($product->getData('cart')); // get the number of items in the cart table ?> item(s) => 
+                            <span class="text-danger">$</span><span class="text-danger"><?= $cart->getSum($item_prices) ?? 0; ?></span>
                         </h5>
                         <button type="submit" class="btn btn-warning mt-3">Proceed to Buy</button>
                     </div>
