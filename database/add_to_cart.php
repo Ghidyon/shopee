@@ -61,15 +61,17 @@ class Cart
         }
     }
 
-    // Method to calculate subtotal of items in the cart
-    /* public function getSum($arr)
+    // Method to calculate subtotal of item prices in the cart
+    public function getSum($arr)
     {
-        // if arr is set,
+        // if array of prices is set, return sum of all prices
         if (isset($arr)) {
             $sum = 0;
-            foreach($arr as $item) {
-                lk
+            foreach($arr as $price) {
+                $sum += floatval($price[0]); // floatval() converts a string/any value to a float(decimal) value
             }
+            return sprintf('%.2f', $sum); // sprintf() returns a formatted string to a variable
+            // '.2f' signifies that only 2 digits will appear after the decimal
         }
-    } */
+    }
 }
