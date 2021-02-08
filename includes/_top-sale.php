@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// fetch cart data
+// Fetch cart data
 $cart_array = $product->getData('cart');
 
 // Get cart_item_ids in an array

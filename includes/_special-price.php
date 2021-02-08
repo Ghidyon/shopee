@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="grid">
             <!-- Map through every item in product_array -->
-            <?php array_map(function ($item) { ?>
+            <?php array_map(function ($item) use($cart_item_id) { // Remember we're using use() because cart_item_id is not declared inside the array map function ?>
                 <div class="grid-item <?= $item['item_brand']; ?> border">
                     <div class="item py-2" style="width:200px;">
                         <div class="product font-raleway">
@@ -75,7 +75,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <form method="POST">
                                     <input type="hidden" name="user_id" value="<?= 1; ?>"> <!-- Hide input field carrying user_id information -->
                                     <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 1; ?>"> <!-- Hide input field carrying item_id information -->
-                                    <button type="submit" name="special_price_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                    <?php
+                                        // if item is already in the cart, make the button unclickable and change the write-up
+                                        if (in_array($item['item_id'], $cart_item_id)) {
+                                            echo '<button type="submit" disabled class="btn btn-success font-size-12">Already in Cart</button>';
+                                        } else {
+                                            echo '<button type="submit" name="special_price_submit" class="btn btn-warning font-size-12">Add to Cart</button>';
+                                        }
+                                    ?>
                                 </form>
                             </div>
                         </div>
