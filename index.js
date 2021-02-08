@@ -78,6 +78,17 @@ $(document).ready(function () {
 
     // Increment Quantity
     $qtyUp.click(function(e){
+
+        // Change product price using ajax call
+        $.ajax({
+            url: 'includes/ajax.php', // file path to send response to
+            type: 'POST',
+            data: { itemid: $(this).data('id') },
+            success: function(result) { // callback function that carries the response of the request
+                console.log(result);
+            }
+        });
+
         // Get the input element using the data-id attribute of the button
         let $qtyInput = $( ` .qty .qty-input[data-id='${ $(this).data('id') }'] ` );
         
