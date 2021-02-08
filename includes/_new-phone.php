@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 1; ?>"> <!-- Hide input field carrying item_id information -->
                             <?php
                                 // if item is already in the cart, make the button unclickable
-                                if (in_array($item['item_id'], $cart_item_id)) {
+                                if (in_array($item['item_id'], $cart_item_id ?? [])) { // if there's no array, replace with an empty array, []
                                     echo '<button type="submit" disabled class="btn btn-success font-size-12">Already in Cart</button>';
                                 } else {
                                     echo '<button type="submit" name="new_phone_submit" class="btn btn-warning font-size-12">Add to Cart</button>';

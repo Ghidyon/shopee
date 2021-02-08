@@ -57,11 +57,11 @@
                             <!-- Product Quantity -->
                             <div class="qty d-flex pt-2">
                                 <div class="d-flex font-raleway w-25">
-                                    <button class="qty-down border bg-light rounded-start" data-id="product1">
+                                    <button class="qty-down border bg-light rounded-start" data-id="<?= $item['item_id']; ?>">
                                         <i class="fas fa-angle-down"></i>
                                     </button>
-                                    <input type="text" class="qty-input border px-2 text-center w-100 bg-light" value="1" disabled data-id="product1">
-                                    <button class="qty-up border bg-light rounded-end" data-id="product1">
+                                    <input type="text" class="qty-input border px-2 text-center w-100 bg-light" value="1" disabled data-id="<?= $item['item_id']; ?>">
+                                    <button class="qty-up border bg-light rounded-end" data-id="<?= $item['item_id']; ?>">
                                         <i class="fas fa-angle-up"></i>
                                     </button>
                                 </div>
@@ -99,8 +99,8 @@
                     <h6 class="font-size-12 font-raleway text-success pt-2"><i class="fas fa-check"></i> Your order is eligible for FREE delivery</h6>
                     <div class="border-top py-4">
                         <h5 class="font-size-20 font-baloo">
-                            Total: <?= count($item_prices); // get the number of items in the cart ?> item(s) => 
-                            <span class="text-danger">$</span><span class="text-danger"><?= $cart->getSum($item_prices) ?? 0; ?></span>
+                            Total: <?= isset($item_prices) ? count($item_prices) : 0; // get the number of items in the cart ?> item(s) => 
+                            <span class="text-danger">$</span><span class="text-danger"><?= isset($item_prices) ? $cart->getSum($item_prices) : 0; ?></span>
                         </h5>
                         <button type="submit" class="btn btn-warning mt-3">Proceed to Buy</button>
                     </div>
