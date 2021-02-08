@@ -1,5 +1,4 @@
 <?php
-
     // Request method POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Once delete button is clicked, return item_id

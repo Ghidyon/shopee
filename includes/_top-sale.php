@@ -7,16 +7,22 @@ shuffle($product_array);
 
 // Request method POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user_id = $_POST['user_id'];
-    $item_id = $_POST['item_id'];
 
     // When top_sale_submit(add to cart) button is clicked
     if ( isset($_POST['top_sale_submit']) ) {
+        $user_id = $_POST['user_id'];
+        $item_id = $_POST['item_id'];
 
         // call addToCart method
         $cart->addToCart($user_id, $item_id);
     }
 }
+
+// fetch cart data
+$cart_array = $product->getData('cart');
+
+// Get cart_item_ids in an array
+$cart_item_id = $cart->cartItemId($cart_array);
 ?>
 
 <!-- Top Sale -->
@@ -49,7 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <form method="POST">
                                 <input type="hidden" name="user_id" value="<?= 1; ?>"> <!-- Hide input field carrying user_id information -->
                                 <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 1; ?>"> <!-- Hide input field carrying item_id information -->
-                                <button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                                <?php
+                                // if item is already in the cart, make the button unclickable
+                                if (in_array($item['item_id'], $cart_item_id)) {
+                                    echo '<button type="submit" disabled class="btn btn-success font-size-12">Already in Cart</button>';
+                                } else {
+                                    echo '<button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Add to Cart</button>';
+                                }
+                                ?>
+                                
                             </form>
                         </div>
                     </div>

@@ -104,3 +104,18 @@ class Cart
         return $cart_item_id;
     }
 }
+
+/* 
+Church website, for christ the king
+Be able to articulate what the church needs
+- Content Management
+- Member registration
+- a member should have his own profile
+- a communication like an sms path - maybe a bulk sms/email
+- Monetizing the sms or email
+
+Moving forward we can have a generic app for the church
+- Things like linking to zoom to meet
+- 
+ */
+
