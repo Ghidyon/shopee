@@ -90,4 +90,17 @@ class Cart
             return $result;
         }
     }
+
+    // Method to get cart items item_id
+    public function cartItemId($cart_array = null, $key = 'item_id')
+    {
+        // If there's an array specified, map through the array and return item_ids
+        if ($cart_array !== null) {
+            $cart_item_id = array_map(function($cart_item) use($key){
+                return $cart_item[$key];
+            }, $cart_array);
+        }
+
+        return $cart_item_id;
+    }
 }
