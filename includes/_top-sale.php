@@ -56,7 +56,7 @@ $cart_item_id = $cart->cartItemId($cart_array);
                                 <input type="hidden" name="user_id" value="<?= 1; ?>"> <!-- Hide input field carrying user_id information -->
                                 <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 1; ?>"> <!-- Hide input field carrying item_id information -->
                                 <?php
-                                // if item is already in the cart, make the button unclickable
+                                // if item is already in the cart, make the button unclickable and change the write-up
                                 if (in_array($item['item_id'], $cart_item_id)) {
                                     echo '<button type="submit" disabled class="btn btn-success font-size-12">Already in Cart</button>';
                                 } else {

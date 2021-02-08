@@ -21,7 +21,7 @@ shuffle($product_array);
 // Request method POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // When top_sale_submit(add to cart) button is clicked
+    // When special_price_submit(add to cart) button is clicked
     if ( isset($_POST['special_price_submit']) ) {
         $user_id = $_POST['user_id'];
         $item_id = $_POST['item_id'];

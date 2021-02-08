@@ -5,7 +5,7 @@ shuffle($product_array);
 // Request method POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // When top_sale_submit(add to cart) button is clicked
+    // When new_phone_submit(add to cart) button is clicked
     if ( isset($_POST['new_phone_submit']) ) {
         $user_id = $_POST['user_id'];
         $item_id = $_POST['item_id'];
@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cart->addToCart($user_id, $item_id);
     }
 }
+
+
 ?>
 
 <!-- New Phone -->
@@ -44,7 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <form method="POST">
                             <input type="hidden" name="user_id" value="<?= 1; ?>"> <!-- Hide input field carrying user_id information -->
                             <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 1; ?>"> <!-- Hide input field carrying item_id information -->
-                            <button type="submit" name="new_phone_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                            <?php
+                                // if item is already in the cart, make the button unclickable
+                                if (in_array($item['item_id'], $cart_item_id)) {
+                                    echo '<button type="submit" disabled class="btn btn-success font-size-12">Already in Cart</button>';
+                                } else {
+                                    echo '<button type="submit" name="new_phone_submit" class="btn btn-warning font-size-12">Add to Cart</button>';
+                                }
+                            ?>
                         </form>
                     </div>
                 </div>
