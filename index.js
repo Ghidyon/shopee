@@ -86,6 +86,7 @@ $(document).ready(function () {
             data: { itemid: $(this).data('id') }, // returns the data-id attribute of the button as item_id
             success: function(result) { // callback function that carries the response of the request
                 console.log(result);
+                let obj = JSON.parse(result);
             }
         });
 
