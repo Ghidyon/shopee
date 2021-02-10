@@ -5,5 +5,5 @@ require_once('../app.php');
 if (isset($_POST['itemid'])) {
     // Get product from product table in database and return to index.js file
     $result = $product->getProduct($_POST['itemid']);
-    echo json_encode($result);
+    echo json_encode($result); // converts to a json object
 }

@@ -79,26 +79,30 @@ $(document).ready(function () {
     // Increment Quantity
     $qtyUp.click(function(e){
 
+        // Get the input element using the data-id attribute of the button
+        let $qtyInput = $( ` .qty .qty-input[data-id='${ $(this).data('id') }'] ` );
+
         // Change product price using ajax call
         $.ajax({
             url: 'includes/ajax.php', // file path to send response to
             type: 'POST',
             data: { itemid: $(this).data('id') }, // returns the data-id attribute of the button as item_id
             success: function(result) { // callback function that carries the response of the request
-                console.log(result);
+                // Convert json data gotten from ajax.php, to object
                 let obj = JSON.parse(result);
+                let item_price = obj[0]['item_price'];
+                
+                if ( $qtyInput.val() >= 1 && $qtyInput.val() <= 9 ) {
+                    // Get current value of input and increment
+                    $qtyInput.val(function( index, currentValue ){
+                        return ++currentValue;
+                    });
+                }
             }
         });
 
-        // Get the input element using the data-id attribute of the button
-        let $qtyInput = $( ` .qty .qty-input[data-id='${ $(this).data('id') }'] ` );
         
-        if ( $qtyInput.val() >= 1 && $qtyInput.val() <= 9 ) {
-            // Get current value of input and increment
-            $qtyInput.val(function( index, currentValue ){
-                return ++currentValue;
-            });
-        }
+        
     });
 
     // Decrement Quantity
