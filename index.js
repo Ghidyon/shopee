@@ -82,6 +82,9 @@ $(document).ready(function () {
         // Get the input element using the data-id attribute of the button
         let $qtyInput = $( ` .qty .qty-input[data-id='${ $(this).data('id') }'] ` );
 
+        // Get the price field using the data-id attribute of the price element
+        let $price = $( ` .product-price[data-id='${ $(this).data('id') }'] ` );
+
         // Change product price using ajax call
         $.ajax({
             url: 'includes/ajax.php', // file path to send response to
@@ -91,7 +94,7 @@ $(document).ready(function () {
                 // Convert json data gotten from ajax.php, to object
                 let obj = JSON.parse(result);
                 let item_price = obj[0]['item_price'];
-                
+
                 if ( $qtyInput.val() >= 1 && $qtyInput.val() <= 9 ) {
                     // Get current value of input and increment
                     $qtyInput.val(function( index, currentValue ){
@@ -101,8 +104,6 @@ $(document).ready(function () {
             }
         });
 
-        
-        
     });
 
     // Decrement Quantity

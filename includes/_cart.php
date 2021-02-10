@@ -78,7 +78,7 @@
                         <!-- Product Price -->
                         <div class="col-sm-2">
                             <div class="font-baloo font-size-20 text-danger text-end">
-                                $<span><?= $item['item_price'] ?? 0; ?></span>
+                                $<span class="product-price" data-id="<?= $item['item_id']; ?>"><?= $item['item_price'] ?? 0; ?></span>
                             </div>
                         </div>
                         <!-- Product Price Ends -->
