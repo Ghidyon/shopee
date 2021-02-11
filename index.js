@@ -103,8 +103,50 @@ $(document).ready(function () {
                         return ++currentValue;
                     });
 
+                    // Increase price of product according to quantity
+                    $price.text(parseInt(item_price * $qtyInput.val()).toFixed(2));
+                    // parseInt() converts string to integer
+                    // toFixed(n) => returns n decimal digits
+                    
                     // Set subtotal price
                     let subTotal = parseInt($totalPrice.text()) + parseInt(item_price);
+                    $totalPrice.text(subTotal.toFixed(2));
+                }
+
+
+                
+            }
+        });
+
+    });
+
+    // Decrement Quantity
+    $qtyDown.click(function(e){
+
+        // Get the input element using the data-id attribute of the button
+        let $qtyInput = $( `.qty .qty-input[data-id='${ $(this).data('id') }']` );
+
+        // Get the price field using the data-id attribute of the price element
+        let $price = $( ` .product-price[data-id='${ $(this).data('id') }'] ` );
+
+        // Change product price using ajax call
+        $.ajax({
+            url: 'includes/ajax.php', // file path to send response to
+            type: 'POST',
+            data: { itemid: $(this).data('id') }, // returns the data-id attribute of the button as item_id
+            success: function(result) { // callback function that carries the response of the request
+                // Convert json data gotten from ajax.php, to object
+                let obj = JSON.parse(result);
+                let item_price = obj[0]['item_price'];
+
+                if ( $qtyInput.val() > 1 ) {
+                    // Get current value of input and decrement
+                    $qtyInput.val(function( index, currentValue ){
+                        return --currentValue;
+                    });
+
+                    // Set subtotal price
+                    let subTotal = parseInt($totalPrice.text()) - parseInt(item_price);
                     $totalPrice.text(subTotal.toFixed(2));
                 }
 
@@ -116,19 +158,5 @@ $(document).ready(function () {
                 
             }
         });
-
-    });
-
-    // Decrement Quantity
-    $qtyDown.click(function(e){
-        // Get the input element using the data-id attribute of the button
-        let $qtyInput = $( `.qty .qty-input[data-id='${ $(this).data('id') }']` );
-
-        if ( $qtyInput.val() > 1 ) {
-            // Get current value of input and decrement
-            $qtyInput.val(function( index, currentValue ){
-                return --currentValue;
-            });
-        }
     })
 });
