@@ -11,7 +11,7 @@
 
 <!-- Cart -->
 <section id="cart">
-    <div class="container py-5">
+    <div class="container pt-2 pb-5">
         <h4 class="font-baloo font-size-20">Wishlist</h4>
 
         <!-- Wishlist -->

@@ -73,7 +73,7 @@
                     <form action="#" class="font-size-14 font-raleway">
                         <a href="cart.php" class="rounded-pill py-2 pri-color-bg text-decoration-none">
                             <span class="text-white px-2 font-size-16"><i class="fas fa-shopping-cart"></i></span>
-                            <span class="px-3 py-2 bg-light text-dark rounded-pill">
+                            <span class="px-3 py-2 bg-light text-dark rounded-pill font-rubik">
                             <?= count($product->getData('cart')); // get the number of items in the cart table ?>
                             </span>
                         </a>

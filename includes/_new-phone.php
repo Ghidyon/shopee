@@ -24,7 +24,7 @@ $cart_item_id = $cart->cartItemId($cart_array);
 
 <!-- New Phone -->
 <section id="new-phone">
-    <div class="container">
+    <div class="container pb-4">
         <h4 class="font-rubik font-size-20">New Phones</h4>
         <hr>
 
