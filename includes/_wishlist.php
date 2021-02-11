@@ -12,7 +12,7 @@
 <!-- Cart -->
 <section id="cart">
     <div class="container py-5">
-        <h4 class="font-baloo font-size-20">Shopping Cart</h4>
+        <h4 class="font-baloo font-size-20">Wishlist</h4>
 
         <!-- Wishlist -->
         <div class="row">
@@ -56,19 +56,10 @@
 
                             <!-- Product Quantity -->
                             <div class="qty d-flex pt-2">
-                                <div class="d-flex font-raleway w-25">
-                                    <button class="qty-down border bg-light rounded-start" data-id="<?= $item['item_id']; ?>">
-                                        <i class="fas fa-angle-down"></i>
-                                    </button>
-                                    <input type="text" class="qty-input border px-2 text-center w-100 bg-light" value="1" disabled data-id="<?= $item['item_id']; ?>">
-                                    <button class="qty-up border bg-light rounded-end" data-id="<?= $item['item_id']; ?>">
-                                        <i class="fas fa-angle-up"></i>
-                                    </button>
-                                </div>
                                 <?php // Once delete button is clicked, get item_id of that item ?>
                                 <form method="post">
                                     <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 0; ?>">
-                                    <button type="submit" name="delete_item" class="btn font-baloo text-danger border-end rounded-0 px-3">Delete</button>
+                                    <button type="submit" name="delete_item" class="btn font-baloo text-danger border-end rounded-0 pe-3 ps-0">Delete</button>
                                 </form>
                                 <button type="submit" class="btn font-baloo text-danger px-3">Save for Later</button>
                             </div>

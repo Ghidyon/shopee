@@ -10,6 +10,9 @@
     // include cart area
     require_once('includes/_cart.php');
 
+    // include wishlist area
+    require_once('includes/_wishlist.php');
+
     // include new-phone area
     require_once('includes/_new-phone.php');
 
