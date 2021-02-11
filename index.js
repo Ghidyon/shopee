@@ -74,7 +74,9 @@ $(document).ready(function () {
     // Product Quantity
     $qtyUp = $('.qty .qty-up');
     $qtyDown = $('.qty .qty-down');
-    // $qtyInput = $('.qty .qty-input');
+
+    // Total price element
+    let $totalPrice = $( '#sub-total' );
 
     // Increment Quantity
     $qtyUp.click(function(e){
@@ -101,6 +103,15 @@ $(document).ready(function () {
                         return ++currentValue;
                     });
                 }
+
+                // Increase price of product according to quantity
+                $price.text(parseInt(item_price * $qtyInput.val()).toFixed(2));
+                // parseInt() converts string to integer
+                // toFixed(n) => returns n decimal digits
+
+                // Set subtotal price
+                let subTotal = parseInt($totalPrice.text()) + parseInt(item_price);
+                $totalPrice.text(subTotal.toFixed(2));
             }
         });
 

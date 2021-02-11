@@ -100,7 +100,7 @@
                     <div class="border-top py-4">
                         <h5 class="font-size-20 font-baloo">
                             Total: <?= isset($item_prices) ? count($item_prices) : 0; // get the number of items in the cart ?> item(s) => 
-                            <span class="text-danger">$</span><span class="text-danger"><?= isset($item_prices) ? $cart->getSum($item_prices) : 0; ?></span>
+                            <span class="text-danger">$</span><span class="text-danger" id="sub-total"><?= isset($item_prices) ? $cart->getSum($item_prices) : 0; ?></span>
                         </h5>
                         <button type="submit" class="btn btn-warning mt-3">Proceed to Buy</button>
                     </div>
