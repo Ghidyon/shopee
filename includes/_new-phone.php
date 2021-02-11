@@ -15,7 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// Fetch cart data
+$cart_array = $product->getData('cart');
 
+// Get cart_item_ids in an array
+$cart_item_id = $cart->cartItemId($cart_array);
 ?>
 
 <!-- New Phone -->
