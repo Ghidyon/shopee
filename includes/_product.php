@@ -11,7 +11,7 @@ $item_id = $_GET['item_id'] ?? 1;
 // Request method POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // When top_sale_submit(add to cart) button is clicked
+    // When add_item(add to cart) button is clicked
     if (isset($_POST['add_item'])) {
         $user_id = $_POST['user_id'];
         $item_id = $_POST['item_id'];
@@ -161,11 +161,11 @@ foreach ($product_array as $item) :
                                 <div class="qty d-flex">
                                     <h6 class="font-baloo">Qty</h6>
                                     <div class="d-flex px-2">
-                                        <button class="qty-down border bg-light" data-id="product">
+                                        <button class="qty-down border bg-light" data-id="<?= $item['item_id'] ?? 1; ?>">
                                             <i class="fas fa-angle-down"></i>
                                         </button>
-                                        <input type="text" class="qty-input border px-2 text-center w-50 bg-light" value="1" disabled data-id="product">
-                                        <button class="qty-up border bg-light" data-id="product">
+                                        <input type="text" class="qty-input border px-2 text-center w-50 bg-light" value="1" disabled data-id="<?= $item['item_id'] ?? 1; ?>">
+                                        <button class="qty-up border bg-light" data-id="<?= $item['item_id'] ?? 1; ?>">
                                             <i class="fas fa-angle-up"></i>
                                         </button>
                                     </div>
