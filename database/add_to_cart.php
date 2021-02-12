@@ -103,19 +103,24 @@ class Cart
 
         return $cart_item_id;
     }
+
+    // Method to move save for later item to wishlist
+    public function saveForLater($item_id, $saveToTable = 'wishlist', $saveFromTable = 'cart')
+    {
+        // If item_id is specified, query database and add move item from cart to wishlist.
+        if ($item_id !== null) {
+            // Query database mulitple times
+            $sql_query = "INSERT INTO {$saveToTable} SELECT * FROM {$saveFromTable} WHERE item_id = {$item_id};";
+            $sql_query .= "DELETE FROM {$saveFromTable} WHERE item_id = {$item_id}";
+            echo $sql_query;
+
+            // Execute multiple query
+            $result = $this->db->con->multi_query($sql_query);
+            
+            if ($result) {
+                header('Location:'. $_SERVER['PHP_SELF']); // Reload page
+            }
+            return $result;
+        }
+    }
 }
-
-/* 
-Church website, for christ the king
-Be able to articulate what the church needs
-- Content Management
-- Member registration
-- a member should have his own profile
-- a communication like an sms path - maybe a bulk sms/email
-- Monetizing the sms or email
-
-Moving forward we can have a generic app for the church
-- Things like linking to zoom to meet
-- 
- */
-

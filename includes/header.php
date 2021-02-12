@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- 
+    Themes
+    Cobalt 2
+    Night Owl
+    Shades of Purple
+    Winter is coming
 
+    // Fonts
+    Search google for cascadia code, fira code
+    Follow the instructions on their github
+    Then you set in your settings for font-family "Cascadia code"
+
+    Extensions
+    Auto Rename tag
+    Better comments
+    Snippet extensions
+ -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
