@@ -4,13 +4,14 @@
         <h4 class="font-baloo font-size-20">Shopping Cart</h4>
 
         <!-- Empty Cart -->
-        <div class="row">
-            <div class="col-sm-12">
-                <img src="./assets/blog/empty_cart.png" alt="Empty Cart" class="img-fluid">
+        <div class="row border-top py-3 mt-3">
+            <div class="col-sm-12 text-center">
+                <img src="./assets/blog/empty_cart.png" alt="Empty Cart" class="img-fluid" style="height:300px">
+                <p class="font-baloo text-black-50 font-size-16">Empty Cart</p>
             </div>
         </div>
         <!-- Empty Cart Ends -->
-        
+
     </div>
 
 </section>
