@@ -26,9 +26,6 @@
             <!-- Cart Items -->
             <div class="col-sm-9">
                 <?php
-                    // Get data from cart table in the database
-                    $cart_data = $product->getData('cart');
-
                     // loop through cart_data to get item_id(s)
                     foreach ($cart_data as $item) :
                         // Use item_id to get product_data from the product table in the database

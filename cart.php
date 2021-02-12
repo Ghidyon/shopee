@@ -7,8 +7,12 @@
     // include header area
     require_once('includes/header.php');
 
+    // Get data from cart table in the database
+    $cart_data = $product->getData('cart');
+    
     // include cart area
-    require_once('includes/_cart.php');
+    // if cart is not empty, include _cart.php, else include empty_cart.php
+    count($cart_data) ? require_once('includes/_cart.php') : require_once('includes/empty_cart.php');
 
     // include wishlist area
     require_once('includes/_wishlist.php');
