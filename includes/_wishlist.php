@@ -10,12 +10,12 @@
         // Once add to cart button is clicked, return item_id
         if ( isset($_POST['add_item']) ) {
             // Call method to add item in the cart
-            $add_item = $cart->saveForLater($_POST['item_id']);
+            $add_item = $cart->saveForLater($_POST['item_id'], 'cart', 'wishlist');
         }
     }
 ?>
 
-<!-- Cart -->
+<!-- Wishlist Section -->
 <section id="cart">
     <div class="container pt-2 pb-5">
         <h4 class="font-baloo font-size-20">Wishlist</h4>
@@ -99,4 +99,4 @@
     </div>
 
 </section>
-<!-- Cart Ends -->
+<!-- Wishlist Section Ends -->

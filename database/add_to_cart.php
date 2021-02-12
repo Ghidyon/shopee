@@ -112,10 +112,9 @@ class Cart
             // Query database mulitple times
             $sql_query = "INSERT INTO {$saveToTable} SELECT * FROM {$saveFromTable} WHERE item_id = {$item_id};";
             $sql_query .= "DELETE FROM {$saveFromTable} WHERE item_id = {$item_id};";
-            echo $sql_query;
 
             // Execute multiple query
-            $result = $this->db->con->multi_query($sql_query);
+            $result = $this->db->con->multi_query($sql_query); // multi_query() allows two or more mysql queries
             
             if ($result) {
                 header('Location:'. $_SERVER['PHP_SELF']); // Reload page
