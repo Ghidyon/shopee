@@ -14,8 +14,12 @@
     // if cart is not empty, include _cart.php, else include empty_cart.php
     count($cart_data) ? require_once('includes/_cart.php') : require_once('includes/empty_cart.php');
 
+    // Get data from wishlist table in the database
+    $wishlist_data = $product->getData('wishlist');
+
     // include wishlist area
-    require_once('includes/_wishlist.php');
+    // if wishlist is not empty, include _wishlist.php, else include empty_wishlist.php
+    count($wishlist_data) ? require_once('includes/_wishlist.php') : require_once('includes/empty_wishlist.php');
 
     // include new-phone area
     require_once('includes/_new-phone.php');
