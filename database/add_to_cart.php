@@ -111,7 +111,7 @@ class Cart
         if ($item_id !== null) {
             // Query database mulitple times
             $sql_query = "INSERT INTO {$saveToTable} SELECT * FROM {$saveFromTable} WHERE item_id = {$item_id};";
-            $sql_query .= "DELETE FROM {$saveFromTable} WHERE item_id = {$item_id}";
+            $sql_query .= "DELETE FROM {$saveFromTable} WHERE item_id = {$item_id};";
             echo $sql_query;
 
             // Execute multiple query

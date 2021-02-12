@@ -6,6 +6,12 @@
             // Call method to delete cart item using item_id
             $delete_item = $cart->deleteItem($_POST['item_id']);
         }
+
+        // Once save for later button is clicked, return item_id
+        if ( isset($_POST['save_item']) ) {
+            // Call method to save item in the wishlist
+            $save_item = $cart->saveForLater($_POST['item_id']);
+        }
     }
 ?>
 
@@ -70,7 +76,11 @@
                                     <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 0; ?>">
                                     <button type="submit" name="delete_item" class="btn font-baloo text-danger border-end rounded-0 px-3">Delete</button>
                                 </form>
-                                <button type="submit" class="btn font-baloo text-danger px-3">Save for Later</button>
+                                <form method="post">
+                                    <?php // Once save for later button is clicked, get item_id of that item ?>
+                                    <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 0; ?>">
+                                    <button type="submit" name="save_item" class="btn font-baloo text-danger px-3">Save for Later</button>
+                                </form>
                             </div>
                             <!-- Product Quantity Ends -->
                         </div>
