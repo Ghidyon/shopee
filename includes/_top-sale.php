@@ -1,7 +1,4 @@
 <?php
-// include app.php file containing all important constants and MySQL scripts
-// require_once('./app.php');
-
 // Randomize order of items in product array
 shuffle($product_array);
 
@@ -9,7 +6,7 @@ shuffle($product_array);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // When top_sale_submit(add to cart) button is clicked
-    if ( isset($_POST['top_sale_submit']) ) {
+    if (isset($_POST['top_sale_submit'])) {
         $user_id = $_POST['user_id'];
         $item_id = $_POST['item_id'];
 
@@ -62,7 +59,7 @@ $cart_item_id = $cart->cartItemId($cart_array);
                                 } else {
                                     echo '<button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Add to Cart</button>';
                                 }
-                                ?>                                
+                                ?>
                             </form>
                         </div>
                     </div>

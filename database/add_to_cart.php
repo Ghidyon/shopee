@@ -1,6 +1,6 @@
 <?php
 
-// Class to add cart 
+// Class to add cart
 class Cart
 {
     // Property
@@ -10,7 +10,7 @@ class Cart
     public function __construct(DBConnection $db)
     {
         // If there's no database connection, return null
-        if ( !isset($db->con) ) return null;
+        if (!isset($db->con)) return null;
         // Else if database connection is set, assign database connection to class property
         $this->db = $db;
     }
@@ -27,7 +27,7 @@ class Cart
 
                 // Get cart table column names from the array keys
                 $columns = implode(",", array_keys($data_array)); // array_keys — Returns all the array keys and puts them in an indexed array
-                
+
                 $values = implode(",", array_values($data_array)); // array_values - Returns all the array values and puts them in an indexed array
 
                 // create sql query
@@ -46,7 +46,7 @@ class Cart
     public function addToCart($user_id, $item_id)
     {
         // if user_id and item_id is set, create data array
-        if ( isset($user_id) && isset($item_id) ) {
+        if (isset($user_id) && isset($item_id)) {
             $data_array = [
                 "user_id" => $user_id,
                 "item_id" => $item_id
@@ -56,7 +56,7 @@ class Cart
             $result = $this->insertIntoCart($data_array);
             if ($result) {
                 // reload page
-                header('Location:'.$_SERVER['PHP_SELF']);
+                header('Location:' . $_SERVER['PHP_SELF']);
             }
         }
     }
@@ -67,7 +67,7 @@ class Cart
         // if array of prices is set, return sum of all prices
         if (isset($arr)) {
             $sum = 0;
-            foreach($arr as $price) {
+            foreach ($arr as $price) {
                 $sum += floatval($price[0]); // floatval() converts a string/any value to a float(decimal) value
             }
             return sprintf('%.2f', $sum); // sprintf() returns a formatted string to a variable
@@ -85,7 +85,7 @@ class Cart
             $result = $this->db->con->query($sql);
 
             if ($result) {
-                header('Location:'.$_SERVER['PHP_SELF']);
+                header('Location:' . $_SERVER['PHP_SELF']);
             }
             return $result;
         }
@@ -96,7 +96,7 @@ class Cart
     {
         // If there's an array specified, map through the array and return item_ids
         if ($cart_array !== null) {
-            $cart_item_id = array_map(function($cart_item) use($key){
+            $cart_item_id = array_map(function ($cart_item) use ($key) {
                 return $cart_item[$key];
             }, $cart_array);
         }
@@ -115,9 +115,9 @@ class Cart
 
             // Execute multiple query
             $result = $this->db->con->multi_query($sql_query); // multi_query() allows two or more mysql queries
-            
+
             if ($result) {
-                header('Location:'. $_SERVER['PHP_SELF']); // Reload page
+                header('Location:' . $_SERVER['PHP_SELF']); // Reload page
             }
             return $result;
         }
