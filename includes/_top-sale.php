@@ -62,8 +62,7 @@ $cart_item_id = $cart->cartItemId($cart_array);
                                 } else {
                                     echo '<button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Add to Cart</button>';
                                 }
-                                ?>
-                                
+                                ?>                                
                             </form>
                         </div>
                     </div>

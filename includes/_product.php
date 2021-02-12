@@ -1,6 +1,25 @@
 <?php
+// Fetch cart data
+$cart_array = $product->getData('cart');
+
+// Get cart_item_ids in an array
+$cart_item_id = $cart->cartItemId($cart_array);
+
 // Get item_id from http link
 $item_id = $_GET['item_id'] ?? 1;
+
+// Request method POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // When top_sale_submit(add to cart) button is clicked
+    if ( isset($_POST['add_item']) ) {
+        $user_id = $_POST['user_id'];
+        $item_id = $_POST['item_id'];
+
+        // call addToCart method
+        $cart->addToCart($user_id, $item_id);
+    }
+}
 
 // Loop through each product in the product_array
 foreach ($product_array as $item) :
@@ -17,14 +36,23 @@ foreach ($product_array as $item) :
             <!-- Product Image -->
             <div class="col-sm-6">
                 <img src="<?= $item['item_image'] ?? './assets/products/1.png'; ?>" alt="<?= $item['item_brand']; ?> product" class="img-fluid">
-                <div class="row pt-3 font-size-16 font-baloo">
+                <form method="POST" class="row pt-3 font-size-16 font-baloo">
                     <div class="col">
                         <button type="submit" class="btn btn-danger form-control">Proceed to Buy</button>
                     </div>
+                    <input type="hidden" name="user_id" value="<?= 1; ?>"> <!-- Hide input field carrying user_id information -->
+                    <input type="hidden" name="item_id" value="<?= $item['item_id'] ?? 1; ?>"> <!-- Hide input field carrying item_id information -->
                     <div class="col">
-                        <button type="submit" class="btn btn-warning form-control">Add to Cart</button>
+                        <?php
+                        // if item is already in the cart, make the button unclickable and change the write-up
+                        if (in_array($item['item_id'], $cart_item_id)) {
+                            echo '<button type="submit" disabled class="btn btn-success form-control">Already in Cart</button>';
+                        } else {
+                            echo '<button type="submit" name="add_item" class="btn btn-warning form-control">Add to Cart</button>';
+                        }
+                        ?>                                
                     </div>
-                </div>
+                </form>
             </div>
             <!-- Product Image Ends -->
 

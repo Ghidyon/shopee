@@ -1,4 +1,5 @@
 <?php
+    ob_start(); // to bypass default reload page action whenever there is a form submission
 
     // Directory Navigation
     session_start(); // Start user session
